@@ -8,6 +8,7 @@ import CarCard from "@/components/CarCard";
 import Filters from "@/components/Filters";
 import Navbar from "@/components/Navbar";
 import Loading from "@/components/Loading";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   const [cars, setCars] = useState<Car[]>([]);
@@ -136,6 +137,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

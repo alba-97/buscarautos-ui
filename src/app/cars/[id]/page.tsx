@@ -7,6 +7,7 @@ import { getCarById } from "@/services/api";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Loading from "@/components/Loading";
+import Footer from "@/components/Footer";
 
 export default function CarDetail() {
   const { id } = useParams();
@@ -73,6 +74,7 @@ export default function CarDetail() {
           </div>
         )}
       </div>
+      <Footer />
     </div>
   );
 }
