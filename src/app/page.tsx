@@ -79,64 +79,69 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gray-100 flex flex-col">
       <Navbar />
+      <main className="flex-1">
+        <div className="max-w-7xl mx-auto px-4 py-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div className="md:col-span-1">
+              <Filters
+                brands={brands}
+                selectedBrand={selectedBrand}
+                priceRange={priceRange}
+                defaultPriceRange={defaultPriceRange}
+                onBrandChange={setSelectedBrand}
+                onPriceRangeChange={setPriceRange}
+                onSearchChange={(value) => {
+                  setSearchTerm(value);
+                  setPage(1);
+                }}
+                searchTerm={searchTerm}
+              />
+            </div>
 
-      <div className="max-w-7xl mx-auto px-4 pb-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-          <div className="md:col-span-1">
-            <Filters
-              brands={brands}
-              selectedBrand={selectedBrand}
-              priceRange={priceRange}
-              defaultPriceRange={defaultPriceRange}
-              onBrandChange={setSelectedBrand}
-              onPriceRangeChange={setPriceRange}
-              onSearchChange={(value) => {
-                setSearchTerm(value);
-                setPage(1);
-              }}
-              searchTerm={searchTerm}
-            />
-          </div>
+            <div className="md:col-span-3">
+              {loading ? (
+                <Loading />
+              ) : (
+                <>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {cars.map((car) => (
+                      <CarCard
+                        key={car.id}
+                        car={car}
+                        onClick={handleCarClick}
+                      />
+                    ))}
+                  </div>
 
-          <div className="md:col-span-3">
-            {loading ? (
-              <Loading />
-            ) : (
-              <>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {cars.map((car) => (
-                    <CarCard key={car.id} car={car} onClick={handleCarClick} />
-                  ))}
-                </div>
-
-                <div className="mt-8 flex justify-center gap-4">
-                  <button
-                    onClick={() => handlePageChange(page - 1)}
-                    className="px-4 py-2 rounded-md bg-gray-100 text-gray-900 hover:bg-gray-200 disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed"
-                    disabled={page === 1}
-                  >
-                    Anterior
-                  </button>
-                  <button
-                    onClick={() => handlePageChange(page + 1)}
-                    className="px-4 py-2 rounded-md bg-gray-100 text-gray-900 hover:bg-gray-200 disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed"
-                    disabled={page >= totalPages}
-                  >
-                    Siguiente
-                  </button>
-                </div>
-              </>
-            )}
-            {!loading && cars.length === 0 && (
-              <p className="text-center text-gray-500 mt-8">
-                No se encontraron autos que coincidan con tus criterios.
-              </p>
-            )}
+                  <div className="mt-8 flex justify-center gap-4">
+                    <button
+                      onClick={() => handlePageChange(page - 1)}
+                      className="px-4 py-2 rounded-md bg-gray-100 text-gray-900 hover:bg-gray-200 disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed"
+                      disabled={page === 1}
+                    >
+                      Anterior
+                    </button>
+                    <button
+                      onClick={() => handlePageChange(page + 1)}
+                      className="px-4 py-2 rounded-md bg-gray-100 text-gray-900 hover:bg-gray-200 disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed"
+                      disabled={page >= totalPages}
+                    >
+                      Siguiente
+                    </button>
+                  </div>
+                </>
+              )}
+              {!loading && cars.length === 0 && (
+                <p className="text-center text-gray-500 mt-8">
+                  No se encontraron autos que coincidan con tus criterios.
+                </p>
+              )}
+            </div>
           </div>
         </div>
-      </div>
+      </main>
       <Footer />
     </div>
   );

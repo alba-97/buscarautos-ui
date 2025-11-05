@@ -6,5 +6,5 @@ export interface Car {
   price: number;
   image: string;
   description: string;
-  fuelType: "Gasolina" | "Diesel" | "Electrico" | "Hibrido";
+  fuelType: "Gasolina" | "Electrico";
 }
