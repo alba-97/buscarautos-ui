@@ -115,22 +115,24 @@ export default function Home() {
                     ))}
                   </div>
 
-                  <div className="mt-8 flex justify-center gap-4">
-                    <button
-                      onClick={() => handlePageChange(page - 1)}
-                      className="px-4 py-2 rounded-md bg-gray-100 text-gray-900 hover:bg-gray-200 disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed"
-                      disabled={page === 1}
-                    >
-                      Anterior
-                    </button>
-                    <button
-                      onClick={() => handlePageChange(page + 1)}
-                      className="px-4 py-2 rounded-md bg-gray-100 text-gray-900 hover:bg-gray-200 disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed"
-                      disabled={page >= totalPages}
-                    >
-                      Siguiente
-                    </button>
-                  </div>
+                  {total > 0 && (
+                    <div className="mt-8 flex justify-center gap-4">
+                      <button
+                        onClick={() => handlePageChange(page - 1)}
+                        className="px-4 py-2 rounded-md bg-gray-100 text-gray-900 hover:bg-gray-200 disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed"
+                        disabled={page === 1}
+                      >
+                        Anterior
+                      </button>
+                      <button
+                        onClick={() => handlePageChange(page + 1)}
+                        className="px-4 py-2 rounded-md bg-gray-100 text-gray-900 hover:bg-gray-200 disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed"
+                        disabled={page >= totalPages}
+                      >
+                        Siguiente
+                      </button>
+                    </div>
+                  )}
                 </>
               )}
               {!loading && cars.length === 0 && (

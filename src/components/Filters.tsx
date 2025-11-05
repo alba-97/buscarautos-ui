@@ -100,7 +100,7 @@ export default function Filters({
                     setLocalPriceRange([priceRange[0], localPriceRange[1]]);
                   }
                 }}
-                className="w-full pl-8 pr-2 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                className="w-full pl-8 pr-2 py-2 rounded-md border border-gray-300 focus:outline-none text-gray-900 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
               />
             </div>
             <div className="flex md:hidden lg:flex items-center justify-center">
