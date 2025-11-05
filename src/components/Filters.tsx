@@ -35,7 +35,7 @@ export default function Filters({
           <input
             type="text"
             placeholder="Buscar autos..."
-            className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-gray-600 text-gray-900"
+            className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none placeholder:text-gray-600 text-gray-900"
             value={searchTerm || ""}
             onChange={(e) => onSearchChange(e.target.value)}
           />
@@ -50,7 +50,7 @@ export default function Filters({
           id="brand"
           value={selectedBrand}
           onChange={(e) => onBrandChange(e.target.value)}
-          className="cursor-pointer py-2 pl-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-gray-900"
+          className="cursor-pointer py-2 pl-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm text-gray-900"
         >
           <option value="">Todas</option>
           {brands.map((brand) => (
@@ -132,7 +132,7 @@ export default function Filters({
                     setLocalPriceRange([localPriceRange[0], priceRange[1]]);
                   }
                 }}
-                className="w-full pl-8 pr-2 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                className="w-full pl-8 pr-2 py-2 rounded-md border border-gray-300 focus:outline-none text-gray-900 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
               />
             </div>
           </div>
