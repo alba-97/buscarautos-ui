@@ -1,0 +1,63 @@
+<aside class="filters">
+  <div class="filters-header">
+    <h2 class="filters-title">Filtros</h2>
+  </div>
+
+  <div class="filter-group">
+    <label class="filter-label">Buscar</label>
+    <div class="input-wrapper">
+      <input
+        type="text"
+        class="filter-input"
+        placeholder="Marca, modelo..."
+        [ngModel]="searchTerm"
+        (ngModelChange)="searchChange.emit($event)"
+      />
+    </div>
+  </div>
+
+  <div class="filter-group">
+    <label class="filter-label">Marca</label>
+    <select
+      class="filter-select"
+      [ngModel]="selectedBrand"
+      (ngModelChange)="brandChange.emit($event)"
+    >
+      <option value="">Todas las marcas</option>
+      @for (brand of brands; track brand) {
+        <option [value]="brand">{{ brand }}</option>
+      }
+    </select>
+  </div>
+
+  <div class="filter-group">
+    <label class="filter-label">Rango de precio</label>
+    <div class="price-labels">
+      <span>{{ formatPrice(priceRange[0]) }}</span>
+      <span>{{ formatPrice(priceRange[1]) }}</span>
+    </div>
+    <div class="range-track">
+      <div
+        class="range-fill"
+        [style.left.%]="minPercent"
+        [style.width.%]="maxPercent - minPercent"
+      ></div>
+      <input
+        type="range"
+        class="range-input"
+        [min]="0"
+        [max]="maxPrice"
+        [value]="priceRange[0]"
+        (input)="onMinPrice(+$any($event.target).value)"
+      />
+      <input
+        type="range"
+        class="range-input"
+        [min]="0"
+        [max]="maxPrice"
+        [value]="priceRange[1]"
+        (input)="onMaxPrice(+$any($event.target).value)"
+      />
+    </div>
+  </div>
+</aside>

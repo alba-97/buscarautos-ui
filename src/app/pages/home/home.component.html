@@ -1,0 +1,44 @@
+<div class="home-layout">
+  <app-filters
+    [brands]="brands()"
+    [maxPrice]="maxPrice()"
+    [selectedBrand]="selectedBrand()"
+    [priceRange]="priceRange()"
+    [searchTerm]="searchTerm()"
+    (brandChange)="onBrandChange($event)"
+    (priceRangeChange)="onPriceRangeChange($event)"
+    (searchChange)="onSearchChange($event)"
+  />
+
+  <section class="cars-section">
+    @if (loading()) {
+      <app-loading />
+    } @else {
+      @if (cars().length === 0) {
+        <div class="empty-state">
+          <p>No se encontraron autos con los filtros seleccionados.</p>
+        </div>
+      }
+
+      @if (cars().length > 0) {
+        <div class="cars-grid">
+          @for (car of cars(); track car.id) {
+            <app-car-card [car]="car" (cardClick)="onCardClick($event)" />
+          }
+        </div>
+      }
+
+      @if (totalPages() > 1) {
+        <div class="pagination">
+          <button class="page-btn" [disabled]="page() === 1" (click)="prevPage()">
+            ← Anterior
+          </button>
+          <span class="page-info">{{ page() }} / {{ totalPages() }}</span>
+          <button class="page-btn" [disabled]="page() === totalPages()" (click)="nextPage()">
+            Siguiente →
+          </button>
+        </div>
+      }
+    }
+  </section>
+</div>

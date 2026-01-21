@@ -1,0 +1,18 @@
+<article class="car-card" (click)="cardClick.emit(car)">
+  <div class="card-image">
+    <img [src]="car.image" [alt]="car.brand + ' ' + car.model" loading="lazy" />
+    <span class="fuel-badge" [class.electric]="car.fuelType === 'Electrico'">
+      {{ car.fuelType }}
+    </span>
+  </div>
+  <div class="card-body">
+    <span class="card-brand">{{ car.brand }}</span>
+    <div class="card-row">
+      <h3 class="card-model">{{ car.model }}</h3>
+      <span class="card-year">{{ car.year }}</span>
+    </div>
+    <div class="card-footer">
+      <span class="card-price">{{ car.price | currency:'USD':'symbol':'1.0-0' }}</span>
+    </div>
+  </div>
+</article>

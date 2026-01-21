@@ -1,0 +1,41 @@
+<div class="detail-page">
+  <button class="back-btn" (click)="goBack()">← Volver</button>
+
+  @if (loading()) {
+    <app-loading />
+  }
+
+  @if (notFound()) {
+    <p class="not-found">Auto no encontrado.</p>
+  }
+
+  @if (car() && !loading()) {
+    <div class="detail-card">
+      <div class="detail-image">
+        <img [src]="car()!.image" [alt]="car()!.brand + ' ' + car()!.model" />
+      </div>
+      <div class="detail-info">
+        <span class="detail-brand">{{ car()!.brand }}</span>
+        <h1 class="detail-title">{{ car()!.model }}</h1>
+        <p class="detail-price">
+          {{ car()!.price | currency:'USD':'symbol':'1.0-0' }}
+        </p>
+        <div class="detail-meta">
+          <div class="meta-item">
+            <span class="meta-label">Año</span>
+            <span class="meta-value">{{ car()!.year }}</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Combustible</span>
+            <span class="meta-value">{{ car()!.fuelType }}</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Marca</span>
+            <span class="meta-value">{{ car()!.brand }}</span>
+          </div>
+        </div>
+        <p class="detail-description">{{ car()!.description }}</p>
+      </div>
+    </div>
+  }
+</div>

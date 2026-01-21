@@ -1,66 +1,59 @@
-# BuscarAutos - Frontend
+# BuscarautosUiAngular
 
-## Instrucciones para correr el proyecto
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.3.
 
-1. Instalar dependencias:
+## Development server
 
-```bash
-npm install
-```
-
-2. Configurar variables de entorno:
-   Crear un archivo `.env` en la raíz del proyecto con:
-
-```env
-NEXT_PUBLIC_API_URL=https://buscarautos-api.netlify.app/.netlify/functions/server/api
-```
-
-También se puede usar el backend en local: https://github.com/alba-97/buscarautos-api
-
-3. Iniciar el servidor de desarrollo:
+To start a local development server, run:
 
 ```bash
-npm run dev
+ng serve
 ```
 
-El proyecto estará disponible en `http://localhost:3000`
+Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Decisiones técnicas
+## Code scaffolding
 
-### Framework y Herramientas
+Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
-- **Next.js**: Elegido por el rendimiento, optimización de imágenes, enrutamiento dinámico y SEO.
-- **TypeScript**: Para type safety y mejor experiencia de desarrollo.
-- **TailwindCSS**: Para estilizado rápido y consistente sin necesidad de CSS adicional.
+```bash
+ng generate component component-name
+```
 
-### Arquitectura y Organización
+For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
-- **Componentes**: Separados en archivos individuales para mejor mantenibilidad.
-- **Interfaces**: Definidas en una carpeta separada reutilización.
-- **Servicios**: Llamadas a API en `services/api.ts`.
-- **Hooks personalizados**: Como `useDebounce` para optimizar llamadas a la API.
+```bash
+ng generate --help
+```
 
-### Características Implementadas
+## Building
 
-1. **Búsqueda y Filtros**:
+To build the project run:
 
-   - Búsqueda por texto con debounce de 500ms
-   - Filtrado por marca
-   - Rango de precios con sliders e inputs numéricos
+```bash
+ng build
+```
 
-2. **Paginación**:
+This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
-   - 6 items por página
-   - Navegación anterior/siguiente
-   - Scroll automático al cambiar de página
+## Running unit tests
 
-3. **UI/UX**:
+To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
 
-   - Loading states con spinner para mejor feedback
-   - Diseño responsive
-   - Navegación entre listado y detalle
+```bash
+ng test
+```
 
-4. **Optimizaciones**:
+## Running end-to-end tests
 
-   - Debounce en búsqueda para reducir llamadas a la API
-   - Carga paralela de datos iniciales (marcas y rango de precios)
+For end-to-end (e2e) testing, run:
+
+```bash
+ng e2e
+```
+
+Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+
+## Additional Resources
+
+For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
