@@ -1,4 +1,6 @@
-# BuscarautosUiAngular
+# Buscarautos UI Angular
+
+<img width="1331" height="618" alt="buscarautos" src="https://github.com/user-attachments/assets/c8501982-2fee-403b-b3b5-b2ebc6fceb8b" />
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.3.
 
